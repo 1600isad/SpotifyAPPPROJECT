@@ -2,14 +2,14 @@
 # This file contains the AI-related functions that call OpenAI's API.
 
 from openai import OpenAI # Open ai API used for chatbot and ai features
-from config import OPENAI_API_KEY
-
-client = OpenAI(api_key=OPENAI_API_KEY) #returns an instance of the OpenAI client, which is used to make API calls to OpenAI's services.
+ #returns an instance of the OpenAI client, which is used to make API calls to OpenAI's services.
 
 
 def _call_gpt(system_prompt, user_prompt, max_tokens=400):
     """Base helper for calling GPT-4o-mini."""
     try:
+        from config import OPENAI_API_KEY
+        client = OpenAI(api_key=OPENAI_API_KEY)
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
@@ -61,6 +61,8 @@ def get_practice_tips(tab_content, title, artist):
 
 #------------------------------------------------------------------
 def chat_about_tab(tab_content, title, artist, user_question, history=None):
+    from config import OPENAI_API_KEY
+    client = OpenAI(api_key=OPENAI_API_KEY)
     """
     Answers a freeform question about the tab.
     history: list of {"role": "user"/"assistant", "content": "..."} dicts
