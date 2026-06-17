@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TabSync</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-logo">TabSync</div>
+    <a href="/logout" class="btn-logout">Logout</a>
+   
+    
+  </header>
+
+  <!-- Main Layout -->
+  <main class="app-layout">
+
+    <!-- Left Panel: Now Playing -->
+    <aside class="panel panel-left">
+      <div id="idle-state" class="idle-state">
+        <div class="idle-icon"></div>
+        <p>Play something on Spotify<br/>to get started</p>
+      </div>
+
+      <div id="now-playing" class="now-playing hidden">
+        <img id="album-art" src="" alt="Album Art" class="album-art"/>
+        <div class="track-info">
+          <div id="track-title" class="track-title"></div>
+          <div id="track-artist" class="track-artist"></div>
+          <div id="track-album" class="track-album"></div>
+        </div>
+
+        <!-- AI Buttons -->
+        <div class="ai-section">
+          <p class="ai-label">✦ AI Tools</p>
+          <button class="btn-ai" onclick="aiAction('difficulty')">Rate Difficulty</button>
+          <button class="btn-ai" onclick="aiAction('simplify')">Tone Recreation</button>
+          <button class="btn-ai" onclick="aiAction('tips')">Practice Tips</button>
+        </div>
+
+        <!-- AI Output -->
+        <div id="ai-output" class="ai-output hidden">
+          <div class="ai-output-header">
+            <span id="ai-output-label"></span>
+            <button onclick="closeAiOutput()" class="ai-close">✕</button>
+          </div>
+          <div id="ai-output-text"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Panel: Tab Display -->
+    <section class="panel panel-right">
+      <div id="tab-idle" class="tab-idle">
+        <p>Tabs will appear here automatically</p>
+      </div>
+
+      <div id="tab-loading" class="tab-loading hidden">
+        <div class="spinner"></div>
+        <p>Fetching tab...</p>
+      </div>
+
+      <div id="tab-content" class="hidden">
+        <div class="tab-header">
+          
+          <label class="toggle-label">
+            <span>Auto-open tabs</span>
+              <input type="checkbox" id="auto-open-toggle" />
+            <span class="toggle-switch"></span>
+          </label>
+
+
+          <span id="tab-type-badge" class="tab-badge"></span>
+          <a id="tab-source-link" href="#" target="_blank" class="tab-source-link">View on Songsterr ↗</a>
+
+
+        </div>
+
+        <div id="tab-text" class="tab-text"></div>
+        <span id="tab-artist" class="tab-artist"></span>
+        <span id="tab-title" class="tab-title"></span>
+      </div>
+
+        <pre id="tab-text" class="tab-text"></pre>
+      </div>
+
+      <div id="tab-not-found" class="tab-not-found hidden">
+        <p>No tab found for this song.</p>
+        <p class="tab-not-found-sub">Try searching on <a href="https://www.songsterr.com" target="_blank">Songsterr</a> manually.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- AI Chat -->
+  <div id="chat-panel" class="chat-panel hidden">
+    <div class="chat-header">
+      <span>💬 Ask about this tab</span>
+      <button onclick="toggleChat()" class="ai-close">✕</button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input-row">
+      <input id="chat-input" type="text" placeholder="What key is this in?" onkeydown="if(event.key==='Enter') sendChat()"/>
+      <button onclick="sendChat()" class="btn-send">Send</button>
+    </div>
+  </div>
+  <button class="chat-fab" onclick="toggleChat()">💬</button>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
