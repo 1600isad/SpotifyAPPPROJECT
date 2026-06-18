@@ -3,6 +3,22 @@
 Automatically fetches guitar tabs for whatever you're listening to on Spotify, with AI-powered tools to simplify chords, rate difficulty, and give practice tips.
 Live website demo link: https://web-production-e301ab.up.railway.app/
 
+## How It Works
+
+Log in with your Spotify account
+Play any song on Spotify
+TabSync detects what's playing and automatically fetches a Songsterr tab link and generates an AI chord chart for the song
+Use the AI tools to rate the song's difficulty, get a gear/tone breakdown, or get practice tips
+Chat with the AI assistant to ask questions about the tab, chords, or technique
+
+## Tech Stack
+
+Python + Flask — backend server and routing
+Spotipy — Spotify API integration for real-time now playing detection
+OpenAI GPT — AI chord chart generation and guitar assistant features
+Songsterr — tab search integration
+HTML/CSS/JavaScript — frontend UI with dark mode
+
 ## Screenshots
 
 <img width="959" height="475" alt="pro1" src="https://github.com/user-attachments/assets/a6c5c795-221f-4963-976d-34160039e660" />
