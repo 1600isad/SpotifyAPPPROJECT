@@ -1,5 +1,5 @@
 # 🎸 TabSync — Spotify Guitar Tab App
-
+Why I even made this because im too lazy to pull up the tabs if i forgot them every time im playing along to a song on spotify so this will see the song im playing along to on guitar and will auto pull up the guitar tabs on songsterr (I wish they had their own public API since it only allows to go to the search rather than actual tab so you have to do an extra click). Also added an ai assistant to help with tone or technique tips on the fly if i forget those as well which is pretty cool.
 *Currently OpenAI API calls are not working on demo due to me only having a free plan which doesnt allow for the calls to work, it does work though locally
 Live website demo link: https://web-production-e301ab.up.railway.app/
 
